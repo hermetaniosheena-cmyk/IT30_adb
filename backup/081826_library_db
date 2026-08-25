@@ -1,0 +1,32 @@
+<<<<<<< HEAD
+C:\my_dev\IT34A
+
+1. CREATE DATABASE <database_name>;
+2. SHOW DAATABASES;
+3. CONNECT <database_name>
+4. CREATE TABLE <table_name_in_plural>();
+5. INSERT INTO <table_name_in_plural>
+    (columns)
+    VALUES(values);
+
+Utility Commands
+\! cls 
+mysqldump -u root -p --databses library_db > C:\my_dev\IT34A\backups\08182026_library_db.sql;
+=======
+C:\my_dev\IT34A
+
+1. CREATE DATABASE <database_name>;
+2. SHOW DAATABASES;
+3. CONNECT <database_name>
+4. CREATE TABLE <table_name_in_plural>();
+5. INSERT INTO <table_name_in_plural>
+    (columns)
+    VALUES(values);
+
+Utility Commands
+\! cls 
+mysqldump -u root -p --databses library_db > C:\my_dev\IT34A\backups\08182026_library_db.sql;
+
+
+
+>>>>>>> e289caa (added datetime formating command on readme.txt)
