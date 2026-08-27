@@ -3,7 +3,7 @@ Utility Commands
 
 \! cls
 
-mysqldump =u root -p --databases libarary_db > "D:\Dev\IT30A\backup\%date:~-4%,2%_%date:~7,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%_library_db.sql"
+mysqldump =u root -p --databases libarary_db > "C:\IT30_adb"\%date:~-4%,2%_%date:~7,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%_hermetanio_db.sql"
 
 %date:~4%_
 %date:~4,2%_
