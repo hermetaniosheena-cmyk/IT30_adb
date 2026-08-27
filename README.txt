@@ -19,4 +19,12 @@ ALTER TABLE student ADD COLUMN student_create_at TIMESTAMP NULL DEFAULT NULL;
 UPDATE students SET student_create_at = CURRENT_TIMESTAMP WHERE student_create_at IS NULL;  
 ALTER TABLE student MODIFY student_create_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;  
  
+C:\my_dev\IT34A
 
+ CREATE DATABASE <database_name>;
+ SHOW DAATABASES;
+ CONNECT <database_name>
+ CREATE TABLE <table_name_in_plural>();
+ INSERT INTO <table_name_in_plural>
+    (columns)
+    VALUES(values);
