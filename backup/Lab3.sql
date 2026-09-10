@@ -6,10 +6,10 @@ CREATE TABLE book(
     book_created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO book (book_tittle,book_authhor,book_category)VALUES
-("Someone Someday", "KathrynB", "Love Story"),
-("Peculiar", "AnakniRizal", "Sci-fi"),
-("I love You Ara", "Jamille Fumah", "Horror");
+INSERT INTO books (book_id,book_title,book_author,book_category)VALUES
+("1","Someone Someday", "KathrynB", "Love Story"),
+("2","Peculiar", "AnakniRizal", "Sci-fi"),
+("3","I love You Ara", "Jamille Fumah", "Horror");
 
 CREATE TABLE borrow (
     borrow_id INT AUTO_INCREMENT PRIMARY KEY,
