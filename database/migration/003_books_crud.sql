@@ -49,6 +49,6 @@ FROM books
   -- Book SQL #9 - update  book title and author using specific id number 
   UPDATE books
   SET 
-  book_title = 'I love you ARA',
-  book_author = 'Jamille Fumah'
+  book_title = 'Chasing the sun',
+  book_author = 'INKSTEADY'
   WHERE book_id = 1;
