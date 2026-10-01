@@ -611,7 +611,7 @@ if ($section === 'borrow' && $action === 'create') {
 
         <h3>Borrow a Book</h3>
 
-        <form method="POST">
+        <form method="POST"> 
 
             <p>
                 <label>Student:</label>
