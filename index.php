@@ -370,6 +370,25 @@ if($section === 'borrow'){
 
 }
 
+// Return a Book
+   if($section==='borrow' && $action==='return'){
+        $borrowId = (int)($_GET['id'] ?? 0);
+
+        
+            $stmt = $pdo->prepare("
+                UPDATE borrow
+                SET borrow_return_date=NOW()
+                WHERE borrow_id=?
+            ");
+
+            $stmt->execute([$borrowId]);
+
+            $_SESSION['alert'] = 'Book returned successfully';
+        
+
+        header("Location: index.php?section=borrow");
+        exit;
+    }
 
 ?>
 
@@ -477,20 +496,6 @@ if($section === 'borrow'){
                 </a>
             </form>
         <?php else: ?>
-    <!-- <style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    table, th, td {
-        border: 1px solid black;
-    }
-
-    th, td {
-        padding: 8px;
-    }
-    </style> -->
 
             <table cellpadding="10">
                 <thead>
@@ -747,6 +752,8 @@ if($section === 'borrow'){
                     <th>Book Author</th>
                     <th>Created At</th>
                     <th>Returned At</th>
+                    <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
 
@@ -787,9 +794,26 @@ if($section === 'borrow'){
                                 <?= htmlspecialchars($borrow['borrow_return_date']) ?>
 
                             <?php endif; ?>
-                        </td>
 
-                    </tr>
+<td>
+            <?php if ($borrow['borrow_return_date']): ?>
+                Returned
+            <?php else: ?>
+                Borrowed
+            <?php endif; ?>
+        </td>
+
+        <td>
+            <?php if (!$borrow['borrow_return_date']): ?>
+                <a
+                    href="index.php?section=borrow&action=return&id=<?= $borrow['borrow_id'] ?>"
+                    onclick="return confirm('Mark this book as returned?');"
+                >
+                    Return
+                </a>
+            <?php endif; ?>
+        </td>
+    </tr>
 
                 <?php endforeach; ?>
 
