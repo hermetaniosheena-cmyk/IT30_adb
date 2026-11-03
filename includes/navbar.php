@@ -116,7 +116,7 @@ function navActive($section,$currentSection){
             Students
         </a>
 
-        <a href="sindex.php?section=books" class="<?=  navActive('books',$currentSection) ?>">
+        <a href="index.php?section=books" class="<?=  navActive('books',$currentSection) ?>">
             <span class="material-icons">menu_book</span>
             Books
         </a>
