@@ -1,3 +1,4 @@
+
 <?php 
 
 ?>
@@ -8,119 +9,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library · Dashboard</title>
-   
     <!-- Chart.js -->
-<div class="charts-grid">
-
-    <!-- Pie Chart - Book Categories-->
-
-    <div class="chart-card">
-        <div class="chart-title">
-            Books by category
-            <span>
-                <span class="material-icons">category</span>
-                collection
-            </span>
-        </div>
-        <canvas id="categoryChart" width="400" height="200"></canvas>
-    </div>
-
-</div>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-   
-   <script>
-
-    (function() {
-        // Materialize standard palette
-
-        const colors = {
-            blue: '#1976d2',
-
-            green: '#4caf50',
-
-            orange: '#ff9800',
-
-            red: '#f44336',
-
-            purple: '#9c27b0',
-
-            grey: '#9e9e9e'
-
-        };
-
-        // ---------- DOUGHNUT : BOOKS BY CATEGORY ----------
-
-        const catCtx = document.getElementById('categoryChart').getContext('2d');
-        new Chart(catCtx, {
-            type: 'doughnut',
-            data: {
-                labels: <?= json_encode($categories) ?>,
-                datasets: [{
-                    data: <?= json_encode($categoryCounts) ?>,
-                    backgroundColor: [
-                        colors.blue, colors.green, colors.orange, colors.red, colors.purple, colors.grey
-                    ],
-                    borderWidth: 2,
-                    borderColor: '#ffffff',
-
-                    hoverOffset: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                cutout: '65%',
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            boxWidth: 12,
-                            boxHeight: 12,
-                            usePointStyle: false, // Materialize usually uses squares
-
-                            padding: 16,
-                            font: { size:12, family: 'Roboto' },
-                            color: '#616161'
-
-                        }
-                    },
-                    tooltip: {
-                        backgroundColor: '#212121',
-
-                        titleColor: '#ffffff',
-
-                        bodyColor: '#ffffff',
-
-                        padding:10,
-                        cornerRadius:4,
-                        displayColors: true,
-                        callbacks: {
-                            label: function(context) {
-                                const label = context.label || '';
-                                const value = context.parsed || 0;
-                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                const pct = total > 0 ? ((value / total) * 100).toFixed(0) : 0;
-                                return ` ${label}: ${value} (${pct}%)`;
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    })();
-</script>
-
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         /* Materialize Base Typography */
         body {
             background: #f5f5f5; /* Material Grey 100 */
-
             font-family: Roboto, system-ui, -apple-system, sans-serif;
             color: #212121; /* Material Grey 900 */
-
             padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
@@ -132,7 +30,6 @@
         /* Materialize Standard Card */
         .stat-card, .chart-card, .recent-borrows {
             background: #ffffff;
-
             border-radius: 2px;
             box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 
                         0 3px 1px -2px rgba(0,0,0,0.12), 
@@ -157,14 +54,10 @@
             display: flex;
             flex-direction: column;
             border-top: 3px solid #1976d2; /* Material Blue Accent */
-
         }
         .stat-card:nth-child(2) { border-top-color: #4caf50; } /* Green */
-
         .stat-card:nth-child(3) { border-top-color: #ff9800; } /* Orange */
-
         .stat-card:nth-child(4) { border-top-color: #f44336; } /* Red */
-
 
         .stat-header {
             display: flex;
@@ -178,24 +71,20 @@
             letter-spacing: 0.05em;
             font-weight: 500;
             color: #757575; /* Material Grey 600 */
-
         }
         .stat-header .material-icons {
             font-size: 1.8rem;
             color: #bdbdbd; /* Material Grey 400 */
-
         }
         .stat-number { 
             font-size: 2.5rem; 
             font-weight: 400; 
             color: #212121; 
-
             line-height: 1.2; 
         }
         .stat-sub { 
             font-size: 0.85rem; 
             color: #9e9e9e; 
-
             margin-top: 0.3rem; 
         }
 
@@ -213,19 +102,16 @@
             font-size: 1.1rem;
             font-weight: 500;
             color: #212121;
-
             margin-bottom: 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid #e0e0e0;
-
             padding-bottom: 0.8rem;
         }
         .chart-title span {
             font-weight: 500;
             color: #1976d2;
-
             font-size: 0.75rem;
             text-transform: uppercase;
             display: flex;
@@ -252,26 +138,22 @@
             align-items: center;
             margin-bottom: 1rem;
             border-bottom: 1px solid #e0e0e0;
-
             padding-bottom: 0.8rem;
         }
         .recent-header h3 {
             font-weight: 500;
             font-size: 1.1rem;
             color: #212121;
-
             display: flex;
             align-items: center;
             gap: 0.4rem;
         }
         .recent-header h3 .material-icons {
             color: #1976d2;
-
         }
         .recent-header a {
             font-size: 0.85rem;
             color: #1976d2;
-
             font-weight: 500;
             text-transform: uppercase;
             text-decoration: none;
@@ -292,7 +174,6 @@
             justify-content: space-between;
             padding: 0.8rem 0;
             border-bottom: 1px solid #eeeeee;
-
             font-size: 0.95rem;
         }
         .borrow-row:last-child { border-bottom: none; }
@@ -300,7 +181,6 @@
         .borrow-student {
             font-weight: 500;
             color: #424242;
-
             width: 30%;
             display: flex;
             align-items: center;
@@ -308,7 +188,6 @@
         }
         .borrow-book {
             color: #616161;
-
             width: 45%;
             white-space: nowrap;
             overflow: hidden;
@@ -321,7 +200,6 @@
         .borrow-book .material-icons {
             font-size: 1.1rem;
             color: #9e9e9e;
-
         }
 
         /* Material Design Chips */
@@ -341,15 +219,11 @@
         }
         .borrow-status.returned { 
             background: #e8f5e9; /* Green 50 */
-
             color: #2e7d32;      /* Green 800 */
-
         }
         .borrow-status.borrowed { 
             background: #fff3e0; /* Orange 50 */
-
             color: #ef6c00;      /* Orange 800 */
-
         }
 
         .footer-note {
@@ -357,7 +231,6 @@
             text-align: center;
             font-size: 0.8rem;
             color: #9e9e9e;
-
             letter-spacing: 0.5px;
         }
 
@@ -371,10 +244,9 @@
     </style>
 </head>
 <body>
-    <?php include 'includes/navbar.php';
-    
-$host = 'localhost';
-$db   = 'it30a_lab_db';
+    <?php include 'includes/navbar.php'; 
+    $host = 'localhost';
+$db   = 'it30_lab_db';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
@@ -388,33 +260,12 @@ $options = [
 ];
 
 try {
-    $pdo = new PDO($dsn,$user,$pass,$options);
+    $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
-    die("Database connection failed: " .$e->getMessage());
+    die("Database connection failed: " . $e->getMessage());
 }
-
-// ---------- 1. KPI COUNTS ----------
-
-$studentCount  = $pdo->query("SELECT COUNT(*) FROM students")->fetchColumn();
-$bookCount     = $pdo->query("SELECT COUNT(*) FROM books")->fetchColumn();
-$totalBorrows  = $pdo->query("SELECT COUNT(*) FROM borrow")->fetchColumn();
-$activeBorrows = $pdo->query("SELECT COUNT(*) FROM borrow WHERE borrow_return_date IS NULL")->fetchColumn();
-
-// ---------- 2. BOOKS BY CATEGORY ----------
-
-$catStmt =$pdo->query("
-    SELECT book_category, COUNT(*) AS cnt
-    FROM books
-    GROUP BY book_category
-    ORDER BY cnt DESC
-");
-$categories = [];
-$categoryCounts = [];
-while ($row = $catStmt->fetch()) {
-    $categories[] = $row['book_category'];
-    $categoryCounts[] = (int)$row['cnt'];
-}
-
+    
     ?>
 </body>
 </html>
+
